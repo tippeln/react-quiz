@@ -23,9 +23,7 @@ export default function QuizPage() {
 
   useEffect(() => {
     if (answerLogs.length === MAX_QUIZ_LEN) {
-      const correctNum = answerLogs.filter((answer) => {
-        return answer === true;
-      });
+      const correctNum = answerLogs.filter((answer) => answer === true);
       console.log("correctNum:", correctNum);
       navigation(ROUTES.RESULT, {
         state: {
@@ -41,9 +39,11 @@ export default function QuizPage() {
   return (
     <>
       {quizData[quizIndex] && (
-        <Display>{`Q1.${quizData[quizIndex].question}`}</Display>
+        <Display>{`Q.${quizIndex + 1} ${
+          quizData[quizIndex].question
+        }`}</Display>
       )}
-
+      <br />
       {quizData[quizIndex] &&
         quizData[quizIndex].options.map((option, index) => {
           return (
