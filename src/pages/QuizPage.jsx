@@ -3,14 +3,20 @@ import Display from "../components/Display/Display";
 import quizData from "../data/quiz";
 
 export default function QuizPage() {
-  const quizIndex = 2;
+  const quizIndex = 0;
+  const handleClick = (clickedIndex) => {
+    console.log("clickedIndex:", clickedIndex);
+  };
   return (
     <>
       <Display>{`Q1.${quizData[quizIndex].question}`}</Display>
-      <Button>{quizData[quizIndex].options[0]}</Button>
-      <Button>{quizData[quizIndex].options[1]}</Button>
-      <Button>{quizData[quizIndex].options[2]}</Button>
-      <Button>{quizData[quizIndex].options[3]}</Button>
+      {quizData[quizIndex].options.map((option, index) => {
+        return (
+          <Button key={`option-${index}`} onClick={() => handleClick(index)}>
+            {option}
+          </Button>
+        );
+      })}
     </>
   );
 }

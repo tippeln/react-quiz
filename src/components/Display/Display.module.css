@@ -1,6 +1,7 @@
 .display {
   flex: 40;
   font-weight: bold;
+  color: #fff;
   text-align: center;
   padding: 10px;
   border: 1px solid #000;
